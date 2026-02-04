@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHERIS | Deep Space Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-purple: #bc13fe;
+        }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #020205;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(18, 18, 35, 1) 0%, rgba(2, 2, 5, 1) 100%),
+                url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
+        .hud-border {
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            position: relative;
+        }
+        .hud-border::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; width: 10px; height: 10px;
+            border-top: 2px solid var(--neon-cyan); border-left: 2px solid var(--neon-cyan);
+        }
+        .hud-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px; width: 10px; height: 10px;
+            border-bottom: 2px solid var(--neon-cyan); border-right: 2px solid var(--neon-cyan);
+        }
+        .scanline {
+            width: 100%; height: 2px;
+            background: rgba(0, 243, 255, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+            z-index: 10;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .glitch-text { font-family: 'Syncopate', sans-serif; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="w-full bg-black/80 border-b border-cyan-900/30 py-2 px-6 flex justify-between text-[10px] uppercase tracking-widest text-cyan-500/70">
+        <div>System: Online // Escrow: Active</div>
+        <div class="flex gap-4">
+            <span>Mars: 22°C</span>
+            <span>Moon: -173°C</span>
+            <span>ISS Latency: 0.04ms</span>
+        </div>
+    </div>
+
+    <nav class="flex justify-between items-center px-8 py-6 sticky top-0 z-50 bg-black/40 backdrop-blur-md">
+        <div class="glitch-text text-xl font-bold tracking-[0.2em] text-white">AETHERIS<span class="animate-pulse">_</span></div>
+        <div class="hidden lg:flex gap-10 text-[11px] font-bold tracking-[0.3em] uppercase">
+            <a href="#" class="hover:text-cyan-400 transition">Catalog</a>
+            <a href="#" class="hover:text-cyan-400 transition">Telemetry</a>
+            <a href="#" class="hover:text-cyan-400 transition">Legalities</a>
+        </div>
+        <button class="px-5 py-2 hud-border text-xs uppercase tracking-widest hover:bg-cyan-500/10 transition">Log Comms</button>
+    </nav>
+
+    <main class="relative pt-20 pb-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+            <div class="mb-4 text-cyan-400 text-xs tracking-[0.5em] uppercase">Interplanetary Acquisition Group</div>
+            <h1 class="glitch-text text-5xl md:text-8xl font-bold mb-8 leading-tight">
+                SECURE YOUR <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 uppercase">Off-World</span> SECTOR
+            </h1>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-10">
+                <div class="hud-border p-4 bg-black/40">
+                    <div class="text-[10px] text-gray-500 uppercase mb-1">Available Units</div>
+                    <div class="text-2xl font-bold font-mono">1,402</div>
+                </div>
+                <div class="hud-border p-4 bg-black/40 border-purple-900/30">
+                    <div class="text-[10px] text-gray-500 uppercase mb-1">Market Cap</div>
+                    <div class="text-2xl font-bold font-mono text-purple-400">8.4T Ξ</div>
+                </div>
+                <div class="hud-border p-4 bg-black/40">
+                    <div class="text-[10px] text-gray-500 uppercase mb-1">New Listings</div>
+                    <div class="text-2xl font-bold font-mono">+12 Today</div>
+                </div>
+                <div class="hud-border p-4 bg-black/40">
+                    <div class="text-[10px] text-gray-500 uppercase mb-1">Total Colonists</div>
+                    <div class="text-2xl font-bold font-mono">2.4M</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-[1px] w-20 bg-cyan-500"></div>
+            <h2 class="text-2xl glitch-text uppercase tracking-widest">Active Listings</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="group relative hud-border p-2 bg-white/5 overflow-hidden">
+                <div class="scanline opacity-0 group-hover:opacity-100"></div>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" class="grayscale group-hover:grayscale-0 transition duration-700 w-full h-[400px] object-cover">
+                <div class="absolute top-6 left-6 bg-black/80 px-3 py-1 text-[10px] text-cyan-400 border border-cyan-400">SECTOR 7-G</div>
+                
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold font-sans uppercase tracking-tight">The Obsidian Spire</h3>
+                            <p class="text-gray-500 text-xs mt-1">L2 Lagrange Point | Orbital Residency</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-mono text-cyan-400">920.00 ETH</div>
+                            <div class="text-[10px] text-gray-600">Incl. Life Support Tax</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-2 border-t border-white/10 pt-4 mt-4 text-[9px] uppercase tracking-widest text-gray-400">
+                        <div class="flex flex-col"><span class="text-white">Gravity</span> 0.95G Centrifugal</div>
+                        <div class="flex flex-col"><span class="text-white">Shielding</span> Class-A Magnetic</div>
+                        <div class="flex flex-col"><span class="text-white">Oxygen</span> Dual-Loop Regen</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative hud-border p-2 bg-white/5 overflow-hidden">
+                <div class="scanline opacity-0 group-hover:opacity-100"></div>
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=1000" class="grayscale group-hover:grayscale-0 transition duration-700 w-full h-[400px] object-cover">
+                <div class="absolute top-6 left-6 bg-black/80 px-3 py-1 text-[10px] text-purple-400 border border-purple-400">RED SOIL DISTRICT</div>
+                
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold font-sans uppercase tracking-tight">Olympus Mons Retreat</h3>
+                            <p class="text-gray-500 text-xs mt-1">Mars | Surface Estate</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-mono text-purple-400">2,150.00 ETH</div>
+                            <div class="text-[10px] text-gray-600">Terraforming Ready</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-2 border-t border-white/10 pt-4 mt-4 text-[9px] uppercase tracking-widest text-gray-400">
+                        <div class="flex flex-col"><span class="text-white">Atmosphere</span> Dome-Pressurized</div>
+                        <div class="flex flex-col"><span class="text-white">Comm Link</span> Sub-Space Relay</div>
+                        <div class="flex flex-col"><span class="text-white">Water</span> Ice-Cap Extractor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+        <h2 class="text-center glitch-text text-xl mb-12">SYSTEMS COMPARISON MATRIX</h2>
+        <div class="overflow-x-auto hud-border">
+            <table class="w-full text-left text-[11px] uppercase tracking-widest border-collapse">
+                <thead class="bg-cyan-900/20 text-cyan-400">
+                    <tr>
+                        <th class="p-4 border-b border-white/10">Facility Grade</th>
+                        <th class="p-4 border-b border-white/10">Oxygen Uptime</th>
+                        <th class="p-4 border-b border-white/10">Rad Protection</th>
+                        <th class="p-4 border-b border-white/10">Residency Rights</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-400">
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-4 border-b border-white/5 text-white">Orbital Apex</td>
+                        <td class="p-4 border-b border-white/5">99.999%</td>
+                        <td class="p-4 border-b border-white/5">Magnetic Hull</td>
+                        <td class="p-4 border-b border-white/5 text-green-500 italic">Full Citizenship</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-4 border-b border-white/5 text-white">Lunar Standard</td>
+                        <td class="p-4 border-b border-white/5">98.500%</td>
+                        <td class="p-4 border-b border-white/5">Regolith 2M</td>
+                        <td class="p-4 border-b border-white/5 text-yellow-500 italic">Work Visa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</body>
+</html>
